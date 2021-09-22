@@ -14,12 +14,17 @@ public class TodoMain {
 		TodoList l = new TodoList();
 		boolean isList = false;
 		boolean quit = false;
+		
+		TodoUtil.loadList(l, "student");
+		Menu.displaymenu();
 		do {
-			Menu.displaymenu();
+//			Menu.displaymenu();
 			isList = false;
 			String choice = sc.next();
 			switch (choice) {
-
+			case "help":
+				Menu.displaymenu();
+				break;
 			case "add":
 				TodoUtil.createItem(l);
 				break;
@@ -53,11 +58,12 @@ public class TodoMain {
 				break;
 
 			case "exit":
+				TodoUtil.saveList(l, "student");
 				quit = true;
 				break;
 
 			default:
-				System.out.println("please enter one of the above mentioned command");
+				System.out.println("##please enter one of the above mentioned command, (press \"help for instructions\")");
 				break;
 			}
 			
