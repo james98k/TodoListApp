@@ -10,12 +10,21 @@ public class TodoList {
 
 	public TodoList() {
 		this.list = new ArrayList<TodoItem>();
-		
+	}
+	public int getSize() {
+		int count = 0;
+		for(TodoItem item : list) {
+			count++;
+		}
+		return count;
 	}
 
 	public void addItem(TodoItem t) {
 		list.add(t); 
 		System.out.println("Todo Item Added");
+	}
+	public void addItemPre(TodoItem t) {
+		list.add(t); 
 	}
 
 	public void deleteItem(TodoItem t) {
@@ -42,10 +51,8 @@ public class TodoList {
 	}
 
 	public void listAll() {
-		System.out.println("\n"
-				+ "inside list_All method\n");
 		for (TodoItem myitem : list) {
-			System.out.println(myitem.getTitle() + myitem.getDesc());
+			System.out.println("["+myitem.getTitle() +"] "+ myitem.getDesc()+" - "+ myitem.getDueDate()+" " + myitem.getCurrent_date());
 		}
 	}
 	
@@ -69,4 +76,29 @@ public class TodoList {
 		}
 		return false;
 	}
+	public void getIndexItem(int index) {
+		int count  = 0;
+		for(TodoItem item : list) {
+			if(count == index) {
+				System.out.println(item.toString());
+			}
+			
+		}
+	}
+	public String toString(TodoItem myitem) {
+//		return "TodoList [list=" + list + "]";
+		return "["+myitem.getTitle() +"] "+ myitem.getDesc()+" - "+ myitem.getDueDate()+" " + myitem.getCurrent_date();
+	}
+	public TodoItem getIndex(int value) {
+		int count = 0;
+		for(TodoItem item : list) {
+			if(count == value) {
+				return item;
+			}
+			count++;
+		}
+		return null;
+		
+	}
+	
 }

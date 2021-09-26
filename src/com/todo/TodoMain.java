@@ -21,6 +21,7 @@ public class TodoMain {
 //			Menu.displaymenu();
 			isList = false;
 			String choice = sc.next();
+			
 			switch (choice) {
 			case "help":
 				Menu.displaymenu();
@@ -59,14 +60,16 @@ public class TodoMain {
 
 			case "exit":
 				TodoUtil.saveList(l, "student");
+				
 				quit = true;
 				break;
-
+			case "find":
+				TodoUtil.findList(l);
 			default:
 				System.out.println("##please enter one of the above mentioned command, (press \"help for instructions\")");
 				break;
 			}
-			
+//			System.out.println("\nhint : help");
 			if(isList) l.listAll();
 		} while (!quit);
 	}
